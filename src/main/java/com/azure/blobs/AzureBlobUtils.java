@@ -38,9 +38,15 @@ public class AzureBlobUtils {
         return blobs;
     }
 
-    public static void downloadBlobs(String containerName, String blobName, String filePath) {
+    public static void downloadBlob(String containerName, String blobName, String filePath) {
         BlobContainerClient blobContainerClient = getBlobContainerClient(containerName);
         BlobClient blobClient = blobContainerClient.getBlobClient(blobName);
         blobClient.downloadToFile(filePath);
+    }
+
+    public static void uploadBlob(String containerName, String localPath, String fileName) {
+        BlobContainerClient blobContainerClient = getBlobContainerClient(containerName);
+        BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
+        blobClient.uploadFromFile(localPath + fileName);
     }
 }

@@ -13,7 +13,7 @@ public class AzureBlobTest {
 
                 String zipTargetFolder = "/data";
                 String zipTargetFullPath = zipTargetFolder + File.separator + blob;
-                AzureBlobUtils.downloadBlobs(containerName, blob, zipTargetFullPath);
+                AzureBlobUtils.downloadBlob(containerName, blob, zipTargetFullPath);
 
                 System.out.println("Decompressing file " + zipTargetFullPath + "...");
                 String fileTargetFullPath = zipTargetFullPath.replace(".gz", "");
