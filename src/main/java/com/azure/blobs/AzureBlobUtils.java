@@ -8,6 +8,7 @@ import com.azure.storage.blob.BlobServiceClientBuilder;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class AzureBlobUtils {
@@ -29,8 +30,8 @@ public class AzureBlobUtils {
         return blobServiceClient.getBlobContainerClient(containerName);
     }
 
-    public static ArrayList<String> listContainerBlobs(String containerName) {
-        ArrayList<String> blobs = new ArrayList<>();
+    public static List<String> listContainerBlobs(String containerName) {
+        List<String> blobs = new ArrayList<>();
         BlobContainerClient blobContainerClient = getBlobContainerClient(containerName);
         blobContainerClient.listBlobs().forEach(blob ->
                 blobs.add(blob.getName()));
