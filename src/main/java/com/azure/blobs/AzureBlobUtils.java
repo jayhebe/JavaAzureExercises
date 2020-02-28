@@ -5,6 +5,7 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,9 +46,9 @@ public class AzureBlobUtils {
         blobClient.downloadToFile(filePath);
     }
 
-    public static void uploadBlob(String containerName, String localPath, String fileName) {
+    public static void uploadBlob(String containerName, String fileFullPath) {
         BlobContainerClient blobContainerClient = getBlobContainerClient(containerName);
-        BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
-        blobClient.uploadFromFile(localPath + fileName);
+        BlobClient blobClient = blobContainerClient.getBlobClient(new File(fileFullPath).getName());
+        blobClient.uploadFromFile(fileFullPath);
     }
 }

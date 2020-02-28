@@ -6,12 +6,12 @@ import java.util.List;
 
 public class CsvUtils {
     public static List<String> readCsv(String fileFullPath) {
-        List<String> csvData = csvData = new ArrayList<>();
+        List<String> csvData = new ArrayList<>();
         BufferedReader inputFile = null;
 
         try {
             inputFile = new BufferedReader(new FileReader(fileFullPath));
-            String line = "";
+            String line;
             while ((line = inputFile.readLine()) != null) {
                 csvData.add(line);
             }
