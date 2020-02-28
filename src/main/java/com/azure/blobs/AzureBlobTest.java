@@ -7,7 +7,7 @@ import java.util.List;
 public class AzureBlobTest {
     public static void main(String[] args) {
         String containerName = "sharefiles";
-        String fileFullPath = "/Users/jingjing/Downloads/test.csv";
+        String fileFullPath = "/data/test.csv";
         List<String> dataList = new ArrayList<>();
         dataList.add("number,name,sex");
         dataList.add("1,Jay,male");
@@ -31,7 +31,7 @@ public class AzureBlobTest {
             if (blob.endsWith(".gz")) {
                 System.out.println("Downloading file " + blob + "...");
 
-                String zipTargetFolder = "/Users/jingjing/Downloads/Test";
+                String zipTargetFolder = "/data/Test";
                 String zipTargetFullPath = zipTargetFolder + File.separator + blob;
                 AzureBlobUtils.downloadBlob(containerName, blob, zipTargetFullPath);
 
